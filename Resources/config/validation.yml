@@ -1,0 +1,3 @@
+NetTeam\DDD\Enum:
+    constraints:
+        - NetTeam\Bundle\DDDBundle\Validator\Constraints\EnumValue: ~
