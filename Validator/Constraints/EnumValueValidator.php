@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use NetTeam\DDD\Enum;
 
 /**
- * Sprawdza czy klasa Enuma posiada poprawną wartość
+ * Checks if Enum instance has valid value
  *
  * @author Krzysztof Menżyk <krzysztof.menzyk@netteam.pl>
  */
