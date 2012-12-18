@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="nt_ddd.form.type.enum.class">NetTeam\Bundle\DDDBundle\Form\Type\EnumType</parameter>
+        <parameter key="nt_ddd.form.type.range.class">NetTeam\Bundle\DDDBundle\Form\Type\RangeType</parameter>
+    </parameters>
+
+    <services>
+        <service id="nt_ddd.form.type.enum" class="%nt_ddd.form.type.enum.class%">
+            <tag name="form.type" alias="enum" />
+        </service>
+
+        <service id="nt_ddd.form.type.range" class="%nt_ddd.form.type.range.class%">
+            <tag name="form.type" alias="range" />
+        </service>
+    </services>
+</container>

@@ -1,1 +1,2 @@
 enum.invalid_value: "Niepoprawna wartość"
+range.invalid_value: "Minimalna wartość nie powinna być większa niż maksymalna"

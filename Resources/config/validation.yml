@@ -1,3 +1,7 @@
 NetTeam\DDD\Enum:
     constraints:
         - NetTeam\Bundle\DDDBundle\Validator\Constraints\EnumValue: ~
+
+NetTeam\DDD\ValueObject\Range:
+    constraints:
+        - NetTeam\Bundle\DDDBundle\Validator\Constraints\RangeValue: ~
