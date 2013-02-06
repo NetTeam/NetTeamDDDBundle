@@ -14,14 +14,14 @@ use NetTeam\DDD\ValueObject\Range;
  */
 class RangeValueValidator extends ConstraintValidator
 {
-    public function isValid($range, Constraint $constraint)
+    public function validate($range, Constraint $constraint)
     {
         if (!$range instanceof Range) {
             throw new UnexpectedTypeException($range, 'NetTeam\DDD\ValueObject\Range');
         }
 
         if ($range->getMin() > $range->getMax()) {
-            $this->setMessage($constraint->message);
+            $this->context->addViolation($constraint->message);
 
             return false;
         }

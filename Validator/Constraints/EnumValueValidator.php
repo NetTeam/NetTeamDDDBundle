@@ -14,7 +14,7 @@ use NetTeam\DDD\Enum;
  */
 class EnumValueValidator extends ConstraintValidator
 {
-    public function isValid($enum, Constraint $constraint)
+    public function validate($enum, Constraint $constraint)
     {
         if (!$enum instanceof Enum) {
             throw new UnexpectedTypeException($enum, 'NetTeam\DDD\Enum');
@@ -23,7 +23,7 @@ class EnumValueValidator extends ConstraintValidator
         $refl = new \ReflectionClass($enum);
 
         if (!in_array($enum->get(), array_values($refl->getConstants()))) {
-            $this->setMessage($constraint->message);
+            $this->context->addViolation($constraint->message);
 
             return false;
         }

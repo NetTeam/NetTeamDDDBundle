@@ -14,10 +14,13 @@ use NetTeam\DDD\Enum;
 class EnumValueValidatorTest extends \PHPUnit_Framework_TestCase
 {
     protected $validator;
+    protected $context;
 
     protected function setUp()
     {
         $this->validator = new EnumValueValidator();
+        $this->context = $this->getMock('Symfony\Component\Validator\ExecutionContext', array(), array(), '', false);
+        $this->validator->initialize($this->context);
     }
 
     /**
@@ -25,17 +28,20 @@ class EnumValueValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testUnexpectedType()
     {
-        $this->validator->isValid(new \stdClass, new EnumValue());
+        $this->context->expects($this->never())->method('addViolation');
+        $this->validator->validate(new \stdClass, new EnumValue());
     }
 
     public function testValidValue()
     {
-        $this->assertTrue($this->validator->isValid(new TestEnum(TestEnum::ONE), new EnumValue()));
+        $this->context->expects($this->never())->method('addViolation');
+        $this->assertTrue($this->validator->validate(new TestEnum(TestEnum::ONE), new EnumValue()));
     }
 
     public function testInvalidValue()
     {
-        $this->assertFalse($this->validator->isValid(new TestEnum(-100, false), new EnumValue()));
+        $this->context->expects($this->once())->method('addViolation');
+        $this->assertFalse($this->validator->validate(new TestEnum(-100, false), new EnumValue()));
     }
 
     public function testMessageIsSet()
@@ -44,8 +50,11 @@ class EnumValueValidatorTest extends \PHPUnit_Framework_TestCase
             'message' => 'myMessage'
         ));
 
-        $this->assertFalse($this->validator->isValid(new TestEnum(-100, false), $constraint));
-        $this->assertEquals($this->validator->getMessageTemplate(), 'myMessage');
+        $this->context->expects($this->once())
+            ->method('addViolation')
+            ->with('myMessage');
+
+        $this->assertFalse($this->validator->validate(new TestEnum(-100, false), $constraint));
     }
 
     public function testConstraintGetTargets()

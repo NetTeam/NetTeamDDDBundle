@@ -14,10 +14,13 @@ use NetTeam\DDD\ValueObject\Range;
 class RangeValueConstraintValidatorTest extends \PHPUnit_Framework_TestCase
 {
     protected $validator;
+    protected $context;
 
     protected function setUp()
     {
         $this->validator = new RangeValueValidator();
+        $this->context = $this->getMock('Symfony\Component\Validator\ExecutionContext', array(), array(), '', false);
+        $this->validator->initialize($this->context);
     }
 
     /**
@@ -25,17 +28,20 @@ class RangeValueConstraintValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testUnexpectedType()
     {
-        $this->validator->isValid(new \stdClass, new RangeValue());
+        $this->context->expects($this->never())->method('addViolation');
+        $this->validator->validate(new \stdClass, new RangeValue());
     }
 
     public function testValidValue()
     {
-        $this->assertTrue($this->validator->isValid(new Range(1, 10), new RangeValue()));
+        $this->context->expects($this->never())->method('addViolation');
+        $this->assertTrue($this->validator->validate(new Range(1, 10), new RangeValue()));
     }
 
     public function testInvalidValue()
     {
-        $this->assertFalse($this->validator->isValid(new Range(100, 1), new RangeValue()));
+        $this->context->expects($this->once())->method('addViolation');
+        $this->assertFalse($this->validator->validate(new Range(100, 1), new RangeValue()));
     }
 
     public function testMessageIsSet()
@@ -44,8 +50,8 @@ class RangeValueConstraintValidatorTest extends \PHPUnit_Framework_TestCase
             'message' => 'myMessage'
         ));
 
-        $this->assertFalse($this->validator->isValid(new Range(100, 1), $constraint));
-        $this->assertEquals($this->validator->getMessageTemplate(), 'myMessage');
+        $this->context->expects($this->once())->method('addViolation')->with('myMessage');
+        $this->assertFalse($this->validator->validate(new Range(100, 1), $constraint));
     }
 
     public function testConstraintGetTargets()
