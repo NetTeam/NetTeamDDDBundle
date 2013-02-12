@@ -43,6 +43,22 @@ class StringToEnumTransformerTest extends \PHPUnit_Framework_TestCase
         $object = $stringToEnumTransformer->reverseTransform(Enum::__NULL);
         $this->assertEquals($object, $enum);
     }
+
+    public function testTransformsWithStringValue()
+    {
+        $value = 'test_value';
+        $enum = new TestEnum($value);
+
+        $stringToEnumTransformer = new StringToEnumTransformer(get_class($enum));
+
+        // transform
+        $string = $stringToEnumTransformer->transform($enum);
+        $this->assertSame($string, $value);
+
+        // reverse transform
+        $object = $stringToEnumTransformer->reverseTransform('test_value');
+        $this->assertEquals($object, $enum);
+    }
 }
 
 class TestEnum extends Enum
@@ -50,4 +66,6 @@ class TestEnum extends Enum
     const FIRST = 1;
 
     const SECOND = 2;
+
+    const THIRD = 'test_value';
 }
