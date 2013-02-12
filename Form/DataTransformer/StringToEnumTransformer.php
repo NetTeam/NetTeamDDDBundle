@@ -38,6 +38,10 @@ class StringToEnumTransformer implements DataTransformerInterface
             throw new UnexpectedTypeException($value, 'string');
         }
 
+        if (ctype_digit($value)) {
+            $value = (int) $value;
+        }
+
         return new $this->class($value, false);
     }
 }
