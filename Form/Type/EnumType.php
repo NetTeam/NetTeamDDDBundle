@@ -4,6 +4,7 @@ namespace NetTeam\Bundle\DDDBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\Exception\MissingOptionsException;
 use NetTeam\Bundle\DDDBundle\Form\DataTransformer\StringToEnumTransformer;
 use NetTeam\DDD\Enum;
@@ -25,11 +26,11 @@ class EnumType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getDefaultOptions(array $options)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return array(
+        $resolver->setDefaults(array(
             'class' => null,
-        );
+        ));
     }
 
     /**

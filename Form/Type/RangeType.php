@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use NetTeam\Bundle\DDDBundle\Form\DataTransformer\ArrayToRangeTransformer;
 
 /**
@@ -78,14 +79,14 @@ class RangeType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getDefaultOptions(array $options)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return array(
+        $resolver->setDefaults(array(
             'by_reference' => false,
             'error_bubbling' => false,
             'type' => 'number',
             'currency' => 'EUR',
-        );
+        ));
     }
 
     private function fixPercentType(FormView $view)
