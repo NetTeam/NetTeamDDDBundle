@@ -13,8 +13,8 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "netteam/ddd": "dev-master",
-        "symfony/framework-bundle": ">2.0,<2.3-dev"
+        "netteam/ddd": "1.0.*@dev",
+        "symfony/framework-bundle": ">=2.1,<2.3-dev"
     },
     "require-dev": {
         "symfony/validator": ">2.0,<2.3-dev",
