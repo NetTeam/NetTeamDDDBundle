@@ -17,8 +17,8 @@
         "symfony/framework-bundle": ">=2.1,<2.3-dev"
     },
     "require-dev": {
-        "symfony/validator": ">2.0,<2.3-dev",
-        "symfony/form": ">2.0,<2.3-dev"
+        "symfony/validator": ">=2.1,<2.3-dev",
+        "symfony/form": ">=2.1,<2.3-dev"
     },
     "autoload": {
         "psr-0": { "NetTeam\\Bundle\\DDDBundle": "" }
