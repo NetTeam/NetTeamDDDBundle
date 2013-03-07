@@ -6,10 +6,18 @@ use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use NetTeam\DDD\Enum;
 
-class StringToEnumTransformer implements DataTransformerInterface
+/**
+ * Transformuje obiekt klasy Enum na jego wartość
+ *
+ * @author Krzysztof Menżyk <krzysztof.menzyk@netteam.pl>
+ */
+class EnumToValueTransformer implements DataTransformerInterface
 {
     private $class;
 
+    /**
+     * @param string $class FQN klasy enuma
+     */
     public function __construct($class)
     {
         $this->class = $class;
@@ -34,12 +42,8 @@ class StringToEnumTransformer implements DataTransformerInterface
             return new $this->class(Enum::__NULL, false);
         }
 
-        if (!is_string($value)) {
-            throw new UnexpectedTypeException($value, 'string');
-        }
-
-        if (ctype_digit($value)) {
-            $value = (int) $value;
+        if (!is_scalar($value)) {
+            throw new UnexpectedTypeException($value, 'scalar');
         }
 
         return new $this->class($value, false);
