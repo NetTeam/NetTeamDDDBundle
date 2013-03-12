@@ -46,6 +46,7 @@ class RangeType extends AbstractType
         }
 
         $builder->setAttribute('type', $options['type']);
+        $builder->setAttribute('range_suffix', $options['range_suffix']);
 
         $builder->add('min', $options['type'], $fieldOptions);
         $builder->add('max', $options['type'], $fieldOptions);
@@ -56,15 +57,9 @@ class RangeType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildViewBottomUp(FormView $view, FormInterface $form)
+    public function buildView(FormView $view, FormInterface $form)
     {
-        $type = $form->getAttribute('type');
-
-        if ('percent' === $type) {
-            $this->fixPercentType($view);
-        } elseif ('money' === $type) {
-            $this->fixMoneyType($view);
-        }
+        $view->set('range_suffix', $form->getAttribute('range_suffix'));
     }
 
     /**
@@ -85,28 +80,8 @@ class RangeType extends AbstractType
             'error_bubbling' => false,
             'type' => 'number',
             'currency' => 'EUR',
+            'range_suffix' => '',
         );
     }
 
-    private function fixPercentType(FormView $view)
-    {
-        $types = $view->getChild('min')->get('types');
-        $types[1] = 'text';
-
-        $view->getChild('min')->set('types', $types);
-        $view->getChild('max')->set('types', $types);
-
-        $view->set('range_suffix', '%');
-    }
-
-    private function fixMoneyType(FormView $view)
-    {
-        // Wyciągamy walutę z pola "min" i wrzucamy jako "range_suffix"
-        preg_match('/(.*)[\s]?{{ widget }}[\s]?(.*)/', $view->getChild('min')->get('money_pattern'), $matches);
-        $currency = $matches[1] ? $matches[1] : $matches[2];
-        $view->set('range_suffix', $currency);
-
-        $view->getChild('min')->set('money_pattern', '{{ widget }}');
-        $view->getChild('max')->set('money_pattern', '{{ widget }}');
-    }
 }
