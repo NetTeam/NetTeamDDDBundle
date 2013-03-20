@@ -19,6 +19,7 @@ class DDDExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('form.xml');
+        $loader->load('twig.xml');
     }
 
     public function getAlias()
