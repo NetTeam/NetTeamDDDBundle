@@ -25,7 +25,11 @@ class TransEnumExtension extends \Twig_Extension
 
     public function transEnum($value, $transPrefix = '', $transDomain = 'messages')
     {
-        return $this->translator->trans($transPrefix . '.' . $value, array(), $transDomain);
+        if ('' !== $transPrefix && null !== $transPrefix) {
+            $transPrefix = $transPrefix . '.';
+        }
+
+        return $this->translator->trans($transPrefix . $value, array(), $transDomain);
     }
 
     public function getName()
