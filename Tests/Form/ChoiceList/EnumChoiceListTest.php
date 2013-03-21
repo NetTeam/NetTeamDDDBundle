@@ -35,6 +35,24 @@ class EnumChoiceListTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('prefix.choice.two', $choices[2]);
     }
 
+    public function testWithEmptyPrefix()
+    {
+        $enumChoiceList = new EnumChoiceList($this->getMockTranslator(), 'NetTeam\Bundle\DDDBundle\Tests\Form\ChoiceList\ExampleEnum', '', 'domain', null);
+        $choices = $enumChoiceList->getChoices();
+
+        $this->assertEquals('exampleEnum.one', $choices[1]);
+        $this->assertEquals('exampleEnum.two', $choices[2]);
+    }
+
+    public function testWithNullPrefix()
+    {
+        $enumChoiceList = new EnumChoiceList($this->getMockTranslator(), 'NetTeam\Bundle\DDDBundle\Tests\Form\ChoiceList\ExampleEnum', null, 'domain', null);
+        $choices = $enumChoiceList->getChoices();
+
+        $this->assertEquals('exampleEnum.one', $choices[1]);
+        $this->assertEquals('exampleEnum.two', $choices[2]);
+    }
+
     private function getMockTranslator()
     {
         return \Mockery::mock('Symfony\Component\Translation\TranslatorInterface')

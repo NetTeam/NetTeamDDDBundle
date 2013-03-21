@@ -23,8 +23,12 @@ class EnumChoiceList extends ArrayChoiceList
             $choices = EnumUtil::createChoiceList($class);
         }
 
+        if ('' !== $transPrefix && null !== $transPrefix) {
+            $transPrefix = $transPrefix . '.';
+        }
+
         foreach ($choices as $key => $value) {
-            $this->choices[$key] = $this->translator->trans($transPrefix . '.' . $value, array(), $transDomain);
+            $this->choices[$key] = $this->translator->trans($transPrefix . $value, array(), $transDomain);
         }
     }
 
