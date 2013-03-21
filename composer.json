@@ -18,7 +18,8 @@
     },
     "require-dev": {
         "symfony/validator": ">=2.1,<2.3-dev",
-        "symfony/form": ">=2.1,<2.3-dev"
+        "symfony/form": ">=2.1,<2.3-dev",
+        "mockery/mockery": ">=0.7.2@dev"
     },
     "autoload": {
         "psr-0": { "NetTeam\\Bundle\\DDDBundle": "" }
