@@ -2,14 +2,22 @@
 
 namespace NetTeam\Bundle\DDDBundle\Form\Type;
 
+use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\Exception\MissingOptionsException;
 use NetTeam\Bundle\DDDBundle\Form\DataTransformer\StringToEnumTransformer;
-use NetTeam\DDD\Enum;
+use NetTeam\Bundle\DDDBundle\Form\ChoiceList\EnumChoiceList;
 
 class EnumType extends AbstractType
 {
+    private $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -27,9 +35,27 @@ class EnumType extends AbstractType
      */
     public function getDefaultOptions(array $options)
     {
-        return array(
-            'class' => null,
+        $defaultOptions = array(
+            'class'        => null,
+            'trans_prefix' => '',
+            'trans_domain' => 'messages',
+            'choices'      => null,
+            'choice_list'  => null,
         );
+
+        $options = array_replace($defaultOptions, $options);
+
+        if (!isset($options['choice_list'])) {
+            $defaultOptions['choice_list'] = new EnumChoiceList(
+                $this->translator,
+                $options['class'],
+                $options['trans_prefix'],
+                $options['trans_domain'],
+                $options['choices']
+            );
+        }
+
+        return $defaultOptions;
     }
 
     /**
