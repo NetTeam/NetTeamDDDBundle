@@ -81,7 +81,7 @@ class RangeType extends AbstractType
             'type' => 'number',
             'currency' => 'EUR',
             'range_suffix' => '',
-        );
+        ));
     }
 
 }
