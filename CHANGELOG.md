@@ -1,5 +1,8 @@
 ## CHANGELOG ##
 
+#### v1.0.1 (2013-XX-XX) ####
+- Poprawka w `EnumChoiceList`, gdy `choices` zawiera grupy
+
 #### v1.0.0 (2013-03-21) ####
 - Dodanie `DoctrineRepositoryPass` do ładowania abstrakcyjnych repozytoriów ORM i ODM
 - Refaktoring opcji `range_suffix` w `RangeType`
