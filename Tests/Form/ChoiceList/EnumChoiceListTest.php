@@ -53,6 +53,22 @@ class EnumChoiceListTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('exampleEnum.two', $choices[2]);
     }
 
+    public function testArrayOfArrayChoices()
+    {
+        $choices = array(
+            'group1' => array('choice.one', 'choice.two'),
+            'group2' => array('choice.three', 'choice.four'),
+        );
+
+        $enumChoiceList = new EnumChoiceList($this->getMockTranslator(), 'NetTeam\Bundle\DDDBundle\Tests\Form\ChoiceList\ExampleEnum', 'prefix', 'domain', $choices);
+
+        $expected = array(
+            'group1' => array('prefix.choice.one', 'prefix.choice.two'),
+            'group2' => array('prefix.choice.three', 'prefix.choice.four'),
+        );
+        $this->assertSame($expected, $enumChoiceList->getChoices());
+    }
+
     private function getMockTranslator()
     {
         return \Mockery::mock('Symfony\Component\Translation\TranslatorInterface')

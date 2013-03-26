@@ -14,26 +14,38 @@ use NetTeam\DDD\EnumUtil;
 class EnumChoiceList extends ArrayChoiceList
 {
     private $translator;
+    private $prefix = '';
+    private $domain;
 
     public function __construct(TranslatorInterface $translator, $class, $transPrefix, $transDomain, $choices)
     {
         $this->translator = $translator;
+        $this->domain     = $transDomain;
+
+        if ('' !== $transPrefix && null !== $transPrefix) {
+            $this->prefix = $transPrefix . '.';
+        }
 
         if (null === $choices) {
             $choices = EnumUtil::createChoiceList($class);
         }
 
-        if ('' !== $transPrefix && null !== $transPrefix) {
-            $transPrefix = $transPrefix . '.';
-        }
-
-        foreach ($choices as $key => $value) {
-            $this->choices[$key] = $this->translator->trans($transPrefix . $value, array(), $transDomain);
-        }
+        parent::__construct($this->translateArray($choices));
     }
 
-    public function getChoices()
+    private function translateArray(array $choices)
     {
-        return $this->choices;
+        $translatedChoices = array();
+        foreach ($choices as $key => $choice) {
+            if (is_array($choice)) {
+                $translatedChoices[$key] = $this->translateArray($choice);
+
+                continue;
+            }
+
+            $translatedChoices[$key] = $this->translator->trans($this->prefix . $choice, array(), $this->domain);
+        }
+
+        return $translatedChoices;
     }
 }
