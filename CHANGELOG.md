@@ -1,6 +1,6 @@
 ## CHANGELOG ##
 
-#### v1.0.1 (2013-XX-XX) ####
+#### v1.0.1 (2013-04-05) ####
 - Poprawka w `EnumChoiceList`, gdy `choices` zawiera grupy
 
 #### v1.0.0 (2013-03-21) ####
