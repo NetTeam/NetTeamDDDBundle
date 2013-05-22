@@ -5,7 +5,7 @@ namespace NetTeam\Bundle\DDDBundle\Validator\Constraints;
 use Symfony\Component\Validator\Constraint;
 
 /**
- * Constraint for EnumValueValidator
+ * Constraint dla EnumValueValidator
  *
  * @author Krzysztof Menżyk <krzysztof.menzyk@netteam.pl>
  *

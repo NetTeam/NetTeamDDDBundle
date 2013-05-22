@@ -8,12 +8,15 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use NetTeam\DDD\Enum;
 
 /**
- * Checks if Enum instance has valid value
+ * Sprawdza, czy Enum posiada poprawną wartość
  *
  * @author Krzysztof Menżyk <krzysztof.menzyk@netteam.pl>
  */
 class EnumValueValidator extends ConstraintValidator
 {
+    /**
+     * {@inheritdoc}
+     */
     public function isValid($enum, Constraint $constraint)
     {
         if (!$enum instanceof Enum) {

@@ -8,12 +8,15 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use NetTeam\DDD\ValueObject\Range;
 
 /**
- * Checks if Range instance has valid values (min <= max)
+ * Sprawdzenie, czy Range definiuje poprawny zakres, tj. min <= max
  *
  * @author Krzysztof Menżyk <krzysztof.menzyk@netteam.pl>
  */
 class RangeValueValidator extends ConstraintValidator
 {
+    /**
+     * {@inheritdoc}
+     */
     public function isValid($range, Constraint $constraint)
     {
         if (!$range instanceof Range) {
