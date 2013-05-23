@@ -1,6 +1,6 @@
 ## CHANGELOG ##
 
-#### v1.1.1 (2013-XX-XX) ####
+#### v1.1.1 (2013-05-23) ####
 - CompilerPass tworzący abstrakcyjne repozytoria bazowe dla obiektów obsługiwanych przez DoctrineORM i DoctrineMongoDB.
 - Zmiana nazwy (`StringToEnumTransformer` -> `EnumToValueTransformer`) i refaktoring transformera wykorzystywanego w `EnumType`
 
