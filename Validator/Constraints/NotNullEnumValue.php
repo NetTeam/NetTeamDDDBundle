@@ -14,4 +14,12 @@ use Symfony\Component\Validator\Constraint;
 class NotNullEnumValue extends EnumValue
 {
     public $messageNull = 'enum.not_null';
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTargets()
+    {
+        return self::PROPERTY_CONSTRAINT;
+    }
 }

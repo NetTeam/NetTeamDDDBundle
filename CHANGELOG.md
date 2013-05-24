@@ -1,5 +1,8 @@
 ## CHANGELOG ##
 
+#### v1.0.2 (2013-05-xx) ####
+- Dodanie `NotNullEnumValidator` - walidator sprawdza, czy wartość enuma jest różna od null
+
 #### v1.0.1 (2013-04-05) ####
 - Poprawka w `EnumChoiceList`, gdy `choices` zawiera grupy
 
