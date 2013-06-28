@@ -1,6 +1,6 @@
 ## CHANGELOG ##
 
-#### v1.0.3 (2013-XX-XX) ####
+#### v1.0.3 (2013-06-27) ####
 - `trans_enum` zwraca pustą wartość dla enuma z wartością `null`
 - `trans_enum` rzuca wyjątkiem, gdy podana wartość nie jest enumem
 
