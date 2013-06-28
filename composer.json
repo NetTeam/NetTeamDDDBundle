@@ -19,6 +19,7 @@
     "require-dev": {
         "symfony/validator": ">=2.1,<2.3-dev",
         "symfony/form": ">=2.1,<2.3-dev",
+        "twig/twig": ">=1.1,<2.0-dev",
         "mockery/mockery": ">=0.7.2@dev"
     },
     "autoload": {

@@ -2,6 +2,7 @@
 
 namespace NetTeam\Bundle\DDDBundle\Twig;
 
+use NetTeam\DDD\Enum;
 use Symfony\Component\Translation\TranslatorInterface;
 
 /**
@@ -23,8 +24,12 @@ class TransEnumExtension extends \Twig_Extension
         );
     }
 
-    public function transEnum($value, $transPrefix = '', $transDomain = 'messages')
+    public function transEnum(Enum $value, $transPrefix = '', $transDomain = 'messages')
     {
+        if ($value->is(Enum::__NULL)) {
+            return;
+        }
+
         if ('' !== $transPrefix && null !== $transPrefix) {
             $transPrefix = $transPrefix . '.';
         }

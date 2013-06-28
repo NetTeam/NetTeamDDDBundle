@@ -5,21 +5,21 @@ namespace NetTeam\Bundle\DDDBundle\Validator\Constraints;
 use Symfony\Component\Validator\Constraint;
 
 /**
- * Constraint dla RangeValidator
+ * Constraint dla NotNullEnumValueValidator
  *
- * @author Krzysztof Menżyk <krzysztof.menzyk@netteam.pl>
+ * @author Wojciech Muła <wojciech.mula@netteam.pl>
  *
  * @Annotation
  */
-class RangeValue extends Constraint
+class NotNullEnumValue extends EnumValue
 {
-    public $message = 'range.invalid_value';
+    public $messageNull = 'enum.not_null';
 
     /**
      * {@inheritDoc}
      */
     public function getTargets()
     {
-        return self::CLASS_CONSTRAINT;
+        return self::PROPERTY_CONSTRAINT;
     }
 }
