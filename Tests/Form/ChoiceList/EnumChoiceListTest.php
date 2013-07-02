@@ -64,7 +64,7 @@ class EnumChoiceListTest extends \PHPUnit_Framework_TestCase
 
         $expected = array(
             'group1' => array('prefix.choice.one', 'prefix.choice.two'),
-            'group2' => array('prefix.choice.three', 'prefix.choice.four'),
+            'group2' => array(1 => 'prefix.choice.four', 0 => 'prefix.choice.three'),
         );
         $this->assertSame($expected, $enumChoiceList->getChoices());
     }
