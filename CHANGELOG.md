@@ -2,6 +2,7 @@
 
 #### (2013-MM-DD) ####
  - Dodanie sortowania w `EnumChoiceList`
+ - Dodanie opcji `multiple` w `EnumType`
 
 #### v1.0.3 (2013-06-27) ####
 - `trans_enum` zwraca pustą wartość dla enuma z wartością `null`
