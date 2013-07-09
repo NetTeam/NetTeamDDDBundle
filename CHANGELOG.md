@@ -7,6 +7,10 @@
 - CompilerPass tworzący abstrakcyjne repozytoria bazowe dla obiektów obsługiwanych przez DoctrineORM i DoctrineMongoDB.
 - Zmiana nazwy (`StringToEnumTransformer` -> `EnumToValueTransformer`) i refaktoring transformera wykorzystywanego w `EnumType`
 
+#### v1.0.4 (2013-07-09) ####
+ - Dodanie sortowania w `EnumChoiceList`
+ - Dodanie opcji `multiple` w `EnumType`
+
 #### v1.0.3 (2013-06-27) ####
 - `trans_enum` zwraca pustą wartość dla enuma z wartością `null`
 - `trans_enum` rzuca wyjątkiem, gdy podana wartość nie jest enumem
