@@ -1,5 +1,8 @@
 ## CHANGELOG ##
 
+#### v1.1.3 (2013-07-09) ####
+- Merge z branchem 1.0 (do tagu v1.0.4)
+
 #### v1.1.2 (2013-06-28) ####
 - Merge z branchem 1.0 (do tagu v1.0.3)
 
