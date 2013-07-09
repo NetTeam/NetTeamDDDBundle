@@ -7,9 +7,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\Form\Exception\MissingOptionsException;
-use NetTeam\Bundle\DDDBundle\Form\DataTransformer\StringToEnumTransformer;
+use Symfony\Component\OptionsResolver\Exception\MissingOptionsException;
 use NetTeam\Bundle\DDDBundle\Form\DataTransformer\EnumsToValuesTransformer;
+use NetTeam\Bundle\DDDBundle\Form\DataTransformer\EnumToValueTransformer;
 use NetTeam\Bundle\DDDBundle\Form\ChoiceList\EnumChoiceList;
 
 class EnumType extends AbstractType
@@ -32,11 +32,10 @@ class EnumType extends AbstractType
 
         if ($options['multiple']) {
             $builder->addViewTransformer(new EnumsToValuesTransformer($options['class']), true);
-
             return;
         }
 
-        $builder->addViewTransformer(new StringToEnumTransformer($options['class']), true);
+        $builder->addViewTransformer(new EnumToValueTransformer($options['class']), true);
     }
 
     /**
