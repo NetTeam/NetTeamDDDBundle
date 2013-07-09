@@ -1,6 +1,6 @@
 ## CHANGELOG ##
 
-#### (2013-MM-DD) ####
+#### v1.0.4 (2013-07-09) ####
  - Dodanie sortowania w `EnumChoiceList`
  - Dodanie opcji `multiple` w `EnumType`
 
