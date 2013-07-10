@@ -32,6 +32,7 @@ class EnumType extends AbstractType
 
         if ($options['multiple']) {
             $builder->addViewTransformer(new EnumsToValuesTransformer($options['class']), true);
+
             return;
         }
 
