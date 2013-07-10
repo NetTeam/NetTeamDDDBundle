@@ -5,6 +5,7 @@ namespace NetTeam\Bundle\DDDBundle\Tests\Validator\Constraints;
 use NetTeam\Bundle\DDDBundle\Validator\Constraints\RangeValue;
 use NetTeam\Bundle\DDDBundle\Validator\Constraints\RangeValueValidator;
 use NetTeam\DDD\ValueObject\Range;
+use Symfony\Component\Validator\Constraint;
 
 /**
  * @author Krzysztof Menżyk <krzysztof.menzyk@netteam.pl>
@@ -52,6 +53,6 @@ class RangeValueConstraintValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $constraint = new RangeValue();
 
-        $this->assertEquals('class', $constraint->getTargets());
+        $this->assertEquals(array(Constraint::CLASS_CONSTRAINT, Constraint::PROPERTY_CONSTRAINT), $constraint->getTargets());
     }
 }
