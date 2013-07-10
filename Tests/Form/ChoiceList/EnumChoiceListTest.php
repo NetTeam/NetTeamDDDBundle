@@ -73,8 +73,8 @@ class EnumChoiceListTest extends \PHPUnit_Framework_TestCase
                 1 => new ChoiceView(2, 2, 'prefix.choice.two'),
             ),
             'group2' => array(
-                2 => new ChoiceView(3, 3, 'prefix.choice.three'),
-                3 => new ChoiceView(4, 4, 'prefix.choice.four'),
+                2 => new ChoiceView(4, 4, 'prefix.choice.four'),
+                3 => new ChoiceView(3, 3, 'prefix.choice.three'),
             ),
         ), $enumChoiceList->getRemainingViews());
     }

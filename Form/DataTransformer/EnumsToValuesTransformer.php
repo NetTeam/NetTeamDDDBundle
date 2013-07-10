@@ -58,7 +58,7 @@ class EnumsToValuesTransformer implements DataTransformerInterface
 
         $result = array();
         foreach ($array as $value) {
-            $enum = new StringToEnumTransformer($this->class);
+            $enum = new EnumToValueTransformer($this->class);
             array_push($result, $enum->reverseTransform($value));
         }
 
