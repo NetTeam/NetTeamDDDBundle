@@ -1,5 +1,8 @@
 ## CHANGELOG ##
 
+#### v1.0.5 (2013-07-11) ####
+- Poprawiona walidacja `Range`
+
 #### v1.0.4 (2013-07-09) ####
  - Dodanie sortowania w `EnumChoiceList`
  - Dodanie opcji `multiple` w `EnumType`
