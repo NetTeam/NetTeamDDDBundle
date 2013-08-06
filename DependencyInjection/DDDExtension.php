@@ -18,6 +18,7 @@ class DDDExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('service.xml');
         $loader->load('form.xml');
         $loader->load('twig.xml');
         $loader->load('validator.xml');
