@@ -23,7 +23,7 @@ class RangeValueValidator extends ConstraintValidator
             throw new UnexpectedTypeException($range, 'NetTeam\DDD\ValueObject\Range');
         }
 
-        if ($range->getMin() > $range->getMax()) {
+        if ($range->min() > $range->max()) {
             $this->setMessage($constraint->message);
 
             return false;

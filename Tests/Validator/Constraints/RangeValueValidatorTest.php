@@ -31,12 +31,12 @@ class RangeValueConstraintValidatorTest extends \PHPUnit_Framework_TestCase
 
     public function testValidValue()
     {
-        $this->assertTrue($this->validator->isValid(new Range(1, 10), new RangeValue()));
+        $this->assertTrue($this->validator->isValid(new Range(1, 10, false), new RangeValue()));
     }
 
     public function testInvalidValue()
     {
-        $this->assertFalse($this->validator->isValid(new Range(100, 1), new RangeValue()));
+        $this->assertFalse($this->validator->isValid(new Range(100, 1, false), new RangeValue()));
     }
 
     public function testMessageIsSet()
@@ -45,7 +45,7 @@ class RangeValueConstraintValidatorTest extends \PHPUnit_Framework_TestCase
             'message' => 'myMessage'
         ));
 
-        $this->assertFalse($this->validator->isValid(new Range(100, 1), $constraint));
+        $this->assertFalse($this->validator->isValid(new Range(100, 1, false), $constraint));
         $this->assertEquals($this->validator->getMessageTemplate(), 'myMessage');
     }
 
