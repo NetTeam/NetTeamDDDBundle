@@ -2,6 +2,7 @@
 
 #### v1.1.4 (XXXX-XX-XX) ####
 - Zmiana zależności od Symfony2 na wersje >=2.2.
+- Merge z branchem 1.0 (do tagu vX.Y.Z)
 
 #### v1.1.3 (2013-07-09) ####
 - Merge z branchem 1.0 (do tagu v1.0.4)
@@ -12,6 +13,9 @@
 #### v1.1.1 (2013-05-23) ####
 - CompilerPass tworzący abstrakcyjne repozytoria bazowe dla obiektów obsługiwanych przez DoctrineORM i DoctrineMongoDB.
 - Zmiana nazwy (`StringToEnumTransformer` -> `EnumToValueTransformer`) i refaktoring transformera wykorzystywanego w `EnumType`
+
+#### v1.0.5 (2013-07-11) ####
+- Poprawiona walidacja `Range`
 
 #### v1.0.4 (2013-07-09) ####
  - Dodanie sortowania w `EnumChoiceList`

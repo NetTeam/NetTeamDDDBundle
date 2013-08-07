@@ -5,6 +5,7 @@ namespace NetTeam\Bundle\DDDBundle\Tests\Validator\Constraints;
 use NetTeam\Bundle\DDDBundle\Validator\Constraints\RangeValue;
 use NetTeam\Bundle\DDDBundle\Validator\Constraints\RangeValueValidator;
 use NetTeam\DDD\ValueObject\Range;
+use Symfony\Component\Validator\Constraint;
 
 /**
  * @author Krzysztof Menżyk <krzysztof.menzyk@netteam.pl>
@@ -35,13 +36,13 @@ class RangeValueConstraintValidatorTest extends \PHPUnit_Framework_TestCase
     public function testValidValue()
     {
         $this->context->expects($this->never())->method('addViolation');
-        $this->assertTrue($this->validator->validate(new Range(1, 10), new RangeValue()));
+        $this->assertTrue($this->validator->validate(new Range(1, 10, false), new RangeValue()));
     }
 
     public function testInvalidValue()
     {
         $this->context->expects($this->once())->method('addViolation');
-        $this->assertFalse($this->validator->validate(new Range(100, 1), new RangeValue()));
+        $this->assertFalse($this->validator->validate(new Range(100, 1, false), new RangeValue()));
     }
 
     public function testMessageIsSet()
@@ -51,13 +52,13 @@ class RangeValueConstraintValidatorTest extends \PHPUnit_Framework_TestCase
         ));
 
         $this->context->expects($this->once())->method('addViolation')->with('myMessage');
-        $this->assertFalse($this->validator->validate(new Range(100, 1), $constraint));
+        $this->assertFalse($this->validator->validate(new Range(100, 1, false), $constraint));
     }
 
     public function testConstraintGetTargets()
     {
         $constraint = new RangeValue();
 
-        $this->assertEquals('class', $constraint->getTargets());
+        $this->assertEquals(array(Constraint::CLASS_CONSTRAINT, Constraint::PROPERTY_CONSTRAINT), $constraint->getTargets());
     }
 }
