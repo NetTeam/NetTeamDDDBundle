@@ -18,7 +18,7 @@ class ArrayToRangeTransformer implements DataTransformerInterface
             throw new UnexpectedTypeException($range, 'NetTeam\DDD\ValueObject\Range');
         }
 
-        return array('min'=> $range->getMin(), 'max' => $range->getMax());
+        return array('min'=> $range->min(), 'max' => $range->max());
     }
 
     public function reverseTransform($value)
@@ -31,6 +31,6 @@ class ArrayToRangeTransformer implements DataTransformerInterface
             throw new UnexpectedTypeException($value, 'array');
         }
 
-        return new Range($value['min'], $value['max']);
+        return new Range($value['min'], $value['max'], false);
     }
 }
