@@ -5,6 +5,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <parameters>
         <parameter key="nt_ddd.form.type.extension.percent.class">NetTeam\Bundle\DDDBundle\Form\Extension\PercentTypeExtension</parameter>
+        <parameter key="nt_ddd.form.type.extension.money.class">NetTeam\Bundle\DDDBundle\Form\Extension\MoneyTypeExtension</parameter>
         <parameter key="nt_ddd.form.type.enum.class">NetTeam\Bundle\DDDBundle\Form\Type\EnumType</parameter>
         <parameter key="nt_ddd.form.type.range.class">NetTeam\Bundle\DDDBundle\Form\Type\RangeType</parameter>
     </parameters>
@@ -12,6 +13,10 @@
     <services>
         <service id="nt_ddd.form.type.extension.percent" class="%nt_ddd.form.type.extension.percent.class%">
             <tag name="form.type_extension" alias="percent" />
+        </service>
+
+        <service id="nt_ddd.form.type.extension.money" class="%nt_ddd.form.type.extension.money.class%">
+            <tag name="form.type_extension" alias="money" />
         </service>
 
         <service id="nt_ddd.form.type.enum" class="%nt_ddd.form.type.enum.class%">
