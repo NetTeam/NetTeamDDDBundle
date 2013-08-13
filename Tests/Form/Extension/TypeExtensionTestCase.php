@@ -11,7 +11,7 @@ use Symfony\Component\Form\Test\TypeTestCase;
  *
  * @author Krzysztof Menżyk <krzysztof.menzyk@netteam.pl>
  */
-class TypeExtensionTestCase extends TypeTestCase
+abstract class TypeExtensionTestCase extends TypeTestCase
 {
     protected function setUp()
     {
