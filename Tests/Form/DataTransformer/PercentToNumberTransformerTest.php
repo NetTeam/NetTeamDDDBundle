@@ -2,7 +2,7 @@
 
 namespace NetTeam\Bundle\DDDBundle\Tests\Form\DataTransfomer;
 
-use NetTeam\Bundle\DDDBundle\Form\DataTransformer\PercentToFloatTransformer;
+use NetTeam\Bundle\DDDBundle\Form\DataTransformer\PercentToNumberTransformer;
 use NetTeam\DDD\ValueObject\Percent;
 
 /**
@@ -10,16 +10,16 @@ use NetTeam\DDD\ValueObject\Percent;
  *
  * @author Paweł Macyszyn <pawel.macyszyn@netteam.pl>
  */
-class PercentToFloatTransformerTest extends \PHPUnit_Framework_TestCase
+class PercentToNumberTransformerTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var PercentToFloatTransformer
+     * @var PercentToNumberTransformer
      */
     protected $transformer;
 
     public function setUp()
     {
-        $this->transformer = new PercentToFloatTransformer();
+        $this->transformer = new PercentToNumberTransformer();
     }
 
     public function tearDown()
@@ -34,17 +34,14 @@ class PercentToFloatTransformerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0.1, $value);
     }
 
-    public function testReverseTransform()
+    public function testTransformNull()
     {
-        $value = $this->transformer->reverseTransform(0.1);
-
-        $this->assertInstanceOf('NetTeam\DDD\ValueObject\Percent', $value);
-        $this->assertEquals(0.1, $value->value());
+        $this->assertNull($this->transformer->transform(null));
     }
 
     /**
      * @dataProvider invalidTypeTransformProvider
-     * @expectedException \UnexpectedValueException
+     * @expectedException Symfony\Component\Form\Exception\TransformationFailedException
      */
     public function testTransformInvalidArgumentException($type)
     {
@@ -61,9 +58,22 @@ class PercentToFloatTransformerTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testReverseTransform()
+    {
+        $value = $this->transformer->reverseTransform(0.1);
+
+        $this->assertInstanceOf('NetTeam\DDD\ValueObject\Percent', $value);
+        $this->assertEquals(0.1, $value->value());
+    }
+
+    public function testReverseTransformNull()
+    {
+        $this->assertNull($this->transformer->reverseTransform(null));
+    }
+
     /**
      * @dataProvider invalidTypeReversedTransformProvider
-     * @expectedException \UnexpectedValueException
+     * @expectedException Symfony\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformInvalidArgumentException($type)
     {

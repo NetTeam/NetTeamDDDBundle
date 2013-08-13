@@ -5,7 +5,7 @@ namespace NetTeam\Bundle\DDDBundle\Form\Extension;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
-use NetTeam\Bundle\DDDBundle\Form\DataTransformer\PercentToFloatTransformer;
+use NetTeam\Bundle\DDDBundle\Form\DataTransformer\PercentToNumberTransformer;
 
 /**
  * Class PercentTypeExtension
@@ -20,7 +20,7 @@ class PercentTypeExtension extends AbstractTypeExtension
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         if ($options['use_value_object']) {
-            $builder->addModelTransformer(new PercentToFloatTransformer());
+            $builder->addModelTransformer(new PercentToNumberTransformer());
         }
     }
 
