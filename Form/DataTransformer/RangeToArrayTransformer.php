@@ -3,10 +3,9 @@
 namespace NetTeam\Bundle\DDDBundle\Form\DataTransformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use NetTeam\DDD\ValueObject\Range;
 
-class ArrayToRangeTransformer implements DataTransformerInterface
+class RangeToArrayTransformer implements DataTransformerInterface
 {
    public function transform($range)
     {
@@ -15,7 +14,7 @@ class ArrayToRangeTransformer implements DataTransformerInterface
         }
 
         if (!$range instanceof Range) {
-            throw new UnexpectedTypeException($range, 'NetTeam\DDD\ValueObject\Range');
+            throw new TransformationFailedException('Expected a NetTeam\DDD\ValueObject\Range.');
         }
 
         return array('min'=> $range->min(), 'max' => $range->max());
@@ -28,7 +27,7 @@ class ArrayToRangeTransformer implements DataTransformerInterface
         }
 
         if (!is_array($value)) {
-            throw new UnexpectedTypeException($value, 'array');
+            throw new TransformationFailedException('Expected an array.');
         }
 
         return new Range($value['min'], $value['max'], false);
