@@ -2,15 +2,24 @@
 
 namespace NetTeam\Bundle\DDDBundle\Form\DataTransformer;
 
-use Symfony\Component\Form\DataTransformerInterface;
 use NetTeam\DDD\ValueObject\Range;
+use Symfony\Component\Form\DataTransformerInterface;
+use Symfony\Component\Form\Exception\TransformationFailedException;
 
+/**
+ * Transformer z Range na wartość tablicę z kluczami "min" i "max"
+ *
+ * @author Paweł Macyszyn <pawel.macyszyn@netteam.pl>
+ */
 class RangeToArrayTransformer implements DataTransformerInterface
 {
-   public function transform($range)
+    /**
+     * {@inheritdoc}
+     */
+    public function transform($range)
     {
         if (null === $range) {
-            return array('min'=> 0, 'max' => 0);
+            return array('min'=> null, 'max' => null);
         }
 
         if (!$range instanceof Range) {
@@ -20,16 +29,15 @@ class RangeToArrayTransformer implements DataTransformerInterface
         return array('min'=> $range->min(), 'max' => $range->max());
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function reverseTransform($value)
     {
-        if (null === $value) {
-            return null;
-        }
-
         if (!is_array($value)) {
             throw new TransformationFailedException('Expected an array.');
         }
 
-        return new Range($value['min'], $value['max'], false);
+        return new Range($value['min'], $value['max']);
     }
 }
