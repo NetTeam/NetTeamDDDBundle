@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use NetTeam\Bundle\DDDBundle\Form\DataTransformer\ArrayToRangeTransformer;
+use NetTeam\Bundle\DDDBundle\Form\DataTransformer\RangeToArrayTransformer;
 
 /**
  * Range type -- 2x input field
@@ -51,7 +51,7 @@ class RangeType extends AbstractType
         $builder->add('min', $options['type'], $fieldOptions);
         $builder->add('max', $options['type'], $fieldOptions);
 
-        $builder->addViewTransformer(new ArrayToRangeTransformer());
+        $builder->addViewTransformer(new RangeToArrayTransformer());
     }
 
     /**

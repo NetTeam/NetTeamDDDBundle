@@ -3,7 +3,9 @@
 #### v1.1.4 (XXXX-XX-XX) ####
 - Zmiana zależności od Symfony2 na wersje >=2.2.
 - Merge z branchem 1.0 (do tagu vX.Y.Z)
-- Dodano PercentTypeExtension
+- Dodano `PercentTypeExtension`
+- Dodano `MoneyTypeExtension`
+- Refaktoring form transformerów
 
 #### v1.1.3 (2013-07-09) ####
 - Merge z branchem 1.0 (do tagu v1.0.4)

@@ -2,9 +2,9 @@
 
 namespace NetTeam\Bundle\DDDBundle\Form\DataTransformer;
 
-use Symfony\Component\Form\DataTransformerInterface;
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use NetTeam\DDD\Enum;
+use Symfony\Component\Form\DataTransformerInterface;
+use Symfony\Component\Form\Exception\TransformationFailedException;
 
 /**
  * Transformuje obiekt klasy Enum na jego wartość
@@ -23,6 +23,9 @@ class EnumToValueTransformer implements DataTransformerInterface
         $this->class = $class;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function transform($enum)
     {
         if (null === $enum || '' === $enum) {
@@ -30,12 +33,15 @@ class EnumToValueTransformer implements DataTransformerInterface
         }
 
         if (!$enum instanceof $this->class) {
-            throw new UnexpectedTypeException($enum, $this->class);
+            throw new TransformationFailedException(sprintf('Expected a %s.', $this->class));
         }
 
         return $enum->get();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function reverseTransform($value)
     {
         if (null === $value || '' === $value) {
@@ -43,7 +49,7 @@ class EnumToValueTransformer implements DataTransformerInterface
         }
 
         if (!is_scalar($value)) {
-            throw new UnexpectedTypeException($value, 'scalar');
+            throw new TransformationFailedException('Expected a scalar.');
         }
 
         return new $this->class($value, false);
