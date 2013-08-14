@@ -2,6 +2,7 @@
 
 namespace NetTeam\Bundle\DDDBundle\Form\Type;
 
+use NetTeam\Bundle\DDDBundle\Form\DataTransformer\MoneyRangeToRangeTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormView;
@@ -38,12 +39,13 @@ class RangeType extends AbstractType
         );
 
         if ('money' === $options['type']) {
-            if (!isset($options['currency'])) {
-                throw new \Symfony\Component\Form\Exception\MissingOptionsException('currency');
-            }
-
             $fieldOptions['currency'] = $options['currency'];
             $builder->setAttribute('currency', $options['currency']);
+        }
+
+        if ('money' === $options['input']) {
+            $fieldOptions['use_value_object'] = true;
+            $builder->addModelTransformer(new MoneyRangeToRangeTransformer());
         }
 
         $builder->setAttribute('type', $options['type']);
@@ -81,7 +83,7 @@ class RangeType extends AbstractType
             'type' => 'number',
             'currency' => 'EUR',
             'range_suffix' => '',
+            'input' => null,
         ));
     }
-
 }

@@ -6,6 +6,7 @@
 - Dodano `MoneyTypeExtension`
 - Refaktoring form transformerów
 - Merge z branchem 1.0 (do tagu vX.Y.Z)
+- Dodano obsługę Money w Range
 
 #### v1.1.3 (2013-07-09) ####
 - Merge z branchem 1.0 (do tagu v1.0.4)
