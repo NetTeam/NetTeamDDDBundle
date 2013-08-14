@@ -5,3 +5,7 @@ NetTeam\DDD\Enum:
 NetTeam\DDD\ValueObject\Range:
     constraints:
         - NetTeam\Bundle\DDDBundle\Validator\Constraints\RangeValue: ~
+
+NetTeam\DDD\ValueObject\MoneyRange:
+    constraints:
+        - NetTeam\Bundle\DDDBundle\Validator\Constraints\MoneyRange: ~
