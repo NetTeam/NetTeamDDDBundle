@@ -14,15 +14,19 @@ use NetTeam\DDD\ValueObject\DateRange;
 class DateRangeValidatorTest extends \PHPUnit_Framework_TestCase
 {
     private $validator;
+    private $context;
 
     protected function setUp()
     {
         $this->validator = new DateRangeValidator();
+        $this->context = $this->getMock('Symfony\Component\Validator\ExecutionContext', array(), array(), '', false);
+        $this->validator->initialize($this->context);
     }
 
     protected function tearDown()
     {
         $this->validator = null;
+        $this->context = null;
     }
 
     /**
@@ -32,28 +36,28 @@ class DateRangeValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $range = new \stdClass();
 
-        $this->validator->isValid($range, new DateRangeConstraint());
+        $this->validator->validate($range, new DateRangeConstraint());
     }
 
     public function testIfRangeWithLowerLimitGreaterThanUpperThenValidationFail()
     {
         $range = new DateRange(new \DateTime('2013-12-31'), new \DateTime('2013-01-01'));
 
-        $this->assertFalse($this->validator->isValid($range, new DateRangeConstraint()));
+        $this->assertFalse($this->validator->validate($range, new DateRangeConstraint()));
     }
 
     public function testIfCorrectRangeThenValidationSuccess()
     {
         $range = new DateRange(new \DateTime('2013-01-01'), new \DateTime('2013-12-31'));
 
-        $this->assertTrue($this->validator->isValid($range, new DateRangeConstraint()));
+        $this->assertTrue($this->validator->validate($range, new DateRangeConstraint()));
     }
 
     public function testIfRangeWithNullLimitsThenValidationSuccess()
     {
         $range = new DateRange(null, null);
 
-        $this->assertTrue($this->validator->isValid($range, new DateRangeConstraint()));
+        $this->assertTrue($this->validator->validate($range, new DateRangeConstraint()));
     }
 
     /**
@@ -63,6 +67,6 @@ class DateRangeValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $range = new DateRange(100.0, 100.0);
 
-        $this->validator->isValid($range, new DateRangeConstraint());
+        $this->validator->validate($range, new DateRangeConstraint());
     }
 }

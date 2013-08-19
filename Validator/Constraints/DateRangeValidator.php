@@ -18,7 +18,7 @@ class DateRangeValidator extends ConstraintValidator
     /**
      * {@inheritdoc}
      */
-    public function isValid($range, Constraint $constraint)
+    public function validate($range, Constraint $constraint)
     {
         if (!$range instanceof DateRange) {
             throw new ValidatorException('Expected instance of "NetTeam\DDD\ValueObject\DateRange".');
@@ -33,7 +33,7 @@ class DateRangeValidator extends ConstraintValidator
         }
 
         if ($range->min() > $range->max()) {
-            $this->setMessage($constraint->message);
+            $this->context->addViolation($constraint->message);
 
             return false;
         }
