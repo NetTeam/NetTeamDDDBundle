@@ -20,6 +20,7 @@
 
 #### v1.0.6 (XXXX-XX-XX) ####
 - Dodanie walidatora dla MoneyRange.
+- Dodanie walidatora dla DateRange.
 
 #### v1.0.5 (2013-07-11) ####
 - Poprawiona walidacja `Range`
