@@ -2,21 +2,21 @@
 
 namespace NetTeam\Bundle\DDDBundle\Tests\Validator\Constraints;
 
-use NetTeam\Bundle\DDDBundle\Validator\Constraints\MoneyRange as MoneyRangeConstraint;
-use NetTeam\Bundle\DDDBundle\Validator\Constraints\MoneyRangeValidator;
+use NetTeam\Bundle\DDDBundle\Validator\Constraints\MoneyRangeValue as MoneyRangeConstraint;
+use NetTeam\Bundle\DDDBundle\Validator\Constraints\MoneyRangeValueValidator;
 use NetTeam\DDD\ValueObject\MoneyRange;
 use NetTeam\DDD\ValueObject\Money;
 
 /**
  * @group Unit
  */
-class MoneyRangeValidatorTest extends \PHPUnit_Framework_TestCase
+class MoneyRangeValueValidatorTest extends \PHPUnit_Framework_TestCase
 {
     private $validator;
 
     protected function setUp()
     {
-        $this->validator = new MoneyRangeValidator();
+        $this->validator = new MoneyRangeValueValidator();
     }
 
     protected function tearDown()

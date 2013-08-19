@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraint;
  *
  * @Annotation
  */
-class DateRange extends Constraint
+class DateRangeValue extends Constraint
 {
     public $message = 'dateRange.lowerLimitIsGreaterThanUpper';
 

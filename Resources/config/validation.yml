@@ -8,8 +8,8 @@ NetTeam\DDD\ValueObject\Range:
 
 NetTeam\DDD\ValueObject\MoneyRange:
     constraints:
-        - NetTeam\Bundle\DDDBundle\Validator\Constraints\MoneyRange: ~
+        - NetTeam\Bundle\DDDBundle\Validator\Constraints\MoneyRangeValue: ~
 
 NetTeam\DDD\ValueObject\DateRange:
     constraints:
-        - NetTeam\Bundle\DDDBundle\Validator\Constraints\DateRange: ~
+        - NetTeam\Bundle\DDDBundle\Validator\Constraints\DateRangeValue: ~
