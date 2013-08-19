@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Exception\ValidatorException;
  *
  * @author Paweł Wacławczyk <pawel.waclawczyk@netteam.pl>
  */
-class MoneyRangeValidator extends ConstraintValidator
+class MoneyRangeValueValidator extends ConstraintValidator
 {
 
     /**

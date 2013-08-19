@@ -8,11 +8,11 @@ use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\ValidatorException;
 
 /**
- * Validator for DateRange constraint.
+ * Validator for DateRangeValue constraint.
  *
  * @author Paweł A. Wacławczyk <p.a.waclawczyk@gmail.com>
  */
-class DateRangeValidator extends ConstraintValidator
+class DateRangeValueValidator extends ConstraintValidator
 {
 
     /**
