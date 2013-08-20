@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraint;
  *
  * @Annotation
  */
-class MoneyRange extends Constraint
+class MoneyRangeValue extends Constraint
 {
     public $message = 'moneyRange.invalidValue';
 

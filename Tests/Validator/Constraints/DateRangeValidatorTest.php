@@ -2,8 +2,8 @@
 
 namespace NetTeam\Bundle\DDDBundle\Tests\Validator\Constraints;
 
-use NetTeam\Bundle\DDDBundle\Validator\Constraints\DateRange as DateRangeConstraint;
-use NetTeam\Bundle\DDDBundle\Validator\Constraints\DateRangeValidator;
+use NetTeam\Bundle\DDDBundle\Validator\Constraints\DateRangeValue as DateRangeConstraint;
+use NetTeam\Bundle\DDDBundle\Validator\Constraints\DateRangeValueValidator;
 use NetTeam\DDD\ValueObject\DateRange;
 
 /**
@@ -11,14 +11,14 @@ use NetTeam\DDD\ValueObject\DateRange;
  *
  * @group Unit
  */
-class DateRangeValidatorTest extends \PHPUnit_Framework_TestCase
+class DateRangeValueValidatorTest extends \PHPUnit_Framework_TestCase
 {
     private $validator;
     private $context;
 
     protected function setUp()
     {
-        $this->validator = new DateRangeValidator();
+        $this->validator = new DateRangeValueValidator();
         $this->context = $this->getMock('Symfony\Component\Validator\ExecutionContext', array(), array(), '', false);
         $this->validator->initialize($this->context);
     }
