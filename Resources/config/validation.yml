@@ -4,12 +4,22 @@ NetTeam\DDD\Enum:
 
 NetTeam\DDD\ValueObject\Range:
     constraints:
-        - NetTeam\Bundle\DDDBundle\Validator\Constraints\RangeValue: ~
+        - NetTeam\Bundle\DDDBundle\Validator\Constraints\RangeLimits: ~
 
 NetTeam\DDD\ValueObject\MoneyRange:
-    constraints:
-        - NetTeam\Bundle\DDDBundle\Validator\Constraints\MoneyRangeValue: ~
+    properties:
+        min:
+            - Type:
+                type: NetTeam\DDD\ValueObject\Money
+        max:
+            - Type:
+                type: NetTeam\DDD\ValueObject\Money
 
 NetTeam\DDD\ValueObject\DateRange:
-    constraints:
-        - NetTeam\Bundle\DDDBundle\Validator\Constraints\DateRangeValue: ~
+    properties:
+        min:
+            - Type:
+                type: \DateTime
+        max:
+            - Type:
+                type: \DateTime
