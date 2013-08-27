@@ -2,4 +2,4 @@ enum:
     invalid_value: "Niepoprawna wartość"
     not_null: "Ta wartość nie powinna być pusta"
 rangeLimits:
-    lowerLimitIsGreaterThanUpperLimit: "Minimalna wartość nie powinna być większa niż maksymalna"
+    lowerLimitIsGreaterThanUpperLimit: "Maksymalna wartość musi być większa od minimalnej"

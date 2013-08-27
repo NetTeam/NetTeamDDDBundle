@@ -50,8 +50,8 @@ class RangeType extends AbstractType
 
         $builder->setAttribute('type', $options['type']);
 
-        $builder->add('min', $options['type'], $fieldOptions);
-        $builder->add('max', $options['type'], $fieldOptions);
+        $builder->add('min', $options['type'], array_merge($options['min_options'], $fieldOptions));
+        $builder->add('max', $options['type'], array_merge($options['max_options'], $fieldOptions));
 
         $builder->addViewTransformer(new RangeToArrayTransformer());
     }
@@ -84,6 +84,8 @@ class RangeType extends AbstractType
             'currency' => 'EUR',
             'range_suffix' => '',
             'input' => null,
+            'min_options' => array(),
+            'max_options' => array(),
         ));
     }
 }

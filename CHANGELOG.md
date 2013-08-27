@@ -7,6 +7,7 @@
 - Refaktoring form transformerów
 - Dodano obsługę Money w Range
 - Merge z branchem 1.0 (do tagu vX.Y.Z)
+- Dodano opcje `min_options` i `max_options` w `RangeType`
 
 #### v1.1.3 (2013-07-09) ####
 - Merge z branchem 1.0 (do tagu v1.0.4)
