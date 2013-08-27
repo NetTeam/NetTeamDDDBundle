@@ -1,6 +1,6 @@
 ## CHANGELOG ##
 
-#### v1.0.6 (XXXX-XX-XX) ####
+#### v1.0.6 (2013-08-27) ####
 - Dodanie walidatora dla MoneyRange.
 - Dodanie walidatora dla DateRange.
 
