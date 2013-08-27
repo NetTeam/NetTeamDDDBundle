@@ -50,8 +50,8 @@ class RangeType extends AbstractType
 
         $builder->setAttribute('type', $options['type']);
 
-        $builder->add('min', $options['type'], array_merge($options['min_options'], $fieldOptions));
-        $builder->add('max', $options['type'], array_merge($options['max_options'], $fieldOptions));
+        $builder->add('min', $options['type'], array_merge($fieldOptions, $options['min_options']));
+        $builder->add('max', $options['type'], array_merge($fieldOptions, $options['max_options']));
 
         $builder->addViewTransformer(new RangeToArrayTransformer());
     }

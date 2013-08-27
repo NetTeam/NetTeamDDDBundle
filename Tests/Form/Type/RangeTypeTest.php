@@ -22,7 +22,7 @@ class RangeTypeTest extends TypeExtensionTestCase
         );
     }
 
-    public function testSubmitValidData()
+    public function testSubmitWhenTypeAndInputIsMoney()
     {
         $formData = array(
             'min' => 100,
@@ -48,6 +48,44 @@ class RangeTypeTest extends TypeExtensionTestCase
 
         foreach (array_keys($formData) as $key) {
             $this->assertArrayHasKey($key, $children);
+        }
+    }
+
+    public function testMinOptions()
+    {
+        $minOptions = array(
+            'attr' => array('class' => 'input-mini'),
+            'required' => false,
+            'error_bubbling' => true,
+        );
+
+        $form = $this->factory->create(new RangeType(), null, array(
+            'min_options' => $minOptions,
+        ));
+
+        $options = $form->get('min')->getConfig()->getOptions();
+
+        foreach ($minOptions as $name => $option) {
+            $this->assertEquals($option, $options[$name]);
+        }
+    }
+
+    public function testMaxOptions()
+    {
+        $maxOptions = array(
+            'attr' => array('class' => 'input-mini'),
+            'required' => false,
+            'error_bubbling' => true,
+        );
+
+        $form = $this->factory->create(new RangeType(), null, array(
+            'max_options' => $maxOptions,
+        ));
+
+        $options = $form->get('max')->getConfig()->getOptions();
+
+        foreach ($maxOptions as $name => $option) {
+            $this->assertEquals($option, $options[$name]);
         }
     }
 }
