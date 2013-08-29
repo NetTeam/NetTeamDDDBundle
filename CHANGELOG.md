@@ -1,12 +1,12 @@
 ## CHANGELOG ##
 
-#### v1.1.4 (XXXX-XX-XX) ####
+#### v1.1.4 (2013-08-29) ####
 - Zmiana zależności od Symfony2 na wersje >=2.2.
 - Dodano `PercentTypeExtension`
 - Dodano `MoneyTypeExtension`
 - Refaktoring form transformerów
 - Dodano obsługę Money w Range
-- Merge z branchem 1.0 (do tagu vX.Y.Z)
+- Merge z branchem 1.0 (do tagu v1.0.6)
 - Dodano opcje `min_options` i `max_options` w `RangeType`
 - Dodano `PercentRangeValidator`
 
@@ -20,7 +20,7 @@
 - CompilerPass tworzący abstrakcyjne repozytoria bazowe dla obiektów obsługiwanych przez DoctrineORM i DoctrineMongoDB.
 - Zmiana nazwy (`StringToEnumTransformer` -> `EnumToValueTransformer`) i refaktoring transformera wykorzystywanego w `EnumType`
 
-#### v1.0.6 (XXXX-XX-XX) ####
+#### v1.0.6 (2013-08-27) ####
 - Dodanie walidatora dla MoneyRange.
 - Dodanie walidatora dla DateRange.
 
