@@ -1,5 +1,8 @@
 ## CHANGELOG ##
 
+#### v1.0.7 (2013-XX-XX) ####
+- Fix w `phpunit.xml.dist`
+
 #### v1.0.6 (2013-08-27) ####
 - Dodanie walidatora dla MoneyRange.
 - Dodanie walidatora dla DateRange.
