@@ -2,6 +2,7 @@
 
 #### v1.0.7 (2013-XX-XX) ####
 - Fix w `phpunit.xml.dist`
+- Zgłoszenie serwisów CRUD i Clock.
 
 #### v1.0.6 (2013-08-27) ####
 - Dodanie walidatora dla MoneyRange.
