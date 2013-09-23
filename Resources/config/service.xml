@@ -6,12 +6,17 @@
     <parameters>
 
         <parameter key="nt_ddd.service.crud.class">NetTeam\DDD\Service\CrudService</parameter>
+        <parameter key="nt_ddd.service.clock.class">NetTeam\DDD\Time\Clock</parameter>
 
     </parameters>
 
     <services>
 
         <service id="nt_ddd.service.crud" class="%nt_ddd.service.crud.class%" />
+
+        <service id="nt_ddd.service.clock" class="%nt_ddd.service.clock.class%" />
+
+        <serwis id="nt_ddd.service.clock" alias="clock" />
 
     </services>
 </container>

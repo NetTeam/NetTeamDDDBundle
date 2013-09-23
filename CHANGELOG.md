@@ -1,5 +1,8 @@
 ## CHANGELOG ##
 
+#### v1.1.5 (XXXX-XX-XX) ####
+- Merge z branchem 1.0
+
 #### v1.1.4 (2013-08-29) ####
 - Zmiana zależności od Symfony2 na wersje >=2.2.
 - Dodano `PercentTypeExtension`
@@ -19,6 +22,10 @@
 #### v1.1.1 (2013-05-23) ####
 - CompilerPass tworzący abstrakcyjne repozytoria bazowe dla obiektów obsługiwanych przez DoctrineORM i DoctrineMongoDB.
 - Zmiana nazwy (`StringToEnumTransformer` -> `EnumToValueTransformer`) i refaktoring transformera wykorzystywanego w `EnumType`
+
+#### v1.0.7 (2013-XX-XX) ####
+- Fix w `phpunit.xml.dist`
+- Zgłoszenie serwisów CRUD i Clock.
 
 #### v1.0.6 (2013-08-27) ####
 - Dodanie walidatora dla MoneyRange.
