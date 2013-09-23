@@ -16,7 +16,7 @@
 
         <service id="nt_ddd.service.clock" class="%nt_ddd.service.clock.class%" />
 
-        <serwis id="nt_ddd.service.clock" alias="clock" />
+        <service id="clock" alias="nt_ddd.service.clock" />
 
     </services>
 </container>
