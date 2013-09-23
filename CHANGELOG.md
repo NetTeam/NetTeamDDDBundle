@@ -4,7 +4,6 @@
 - Fix w `phpunit.xml.dist`
 - Zgłoszenie serwisów CRUD i Clock.
 - Dodanie możliwości testowania funkcjonalnego w izolacji
-- Testy funkcjonalne dla serwisu Clock
 
 #### v1.0.6 (2013-08-27) ####
 - Dodanie walidatora dla MoneyRange.
