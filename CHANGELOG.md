@@ -1,6 +1,6 @@
 ## CHANGELOG ##
 
-#### v1.0.7 (2013-XX-XX) ####
+#### v1.0.7 (2013-10-07) ####
 - Fix w `phpunit.xml.dist`
 - Zgłoszenie serwisów CRUD i Clock.
 
