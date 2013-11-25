@@ -1,5 +1,8 @@
 ## CHANGELOG ##
 
+#### v1.0.8 (2013-XX-XX) ####
+- Sportowanie MoneyTypeExtension i PercentTypeExtension do Symfony2.0 z mastera
+
 #### v1.0.7 (2013-10-07) ####
 - Fix w `phpunit.xml.dist`
 - Zgłoszenie serwisów CRUD i Clock.
