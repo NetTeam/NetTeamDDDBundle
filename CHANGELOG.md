@@ -1,6 +1,6 @@
 ## CHANGELOG ##
 
-#### v1.0.8 (2013-XX-XX) ####
+#### v1.0.8 (2013-11-29) ####
 - Sportowanie MoneyTypeExtension i PercentTypeExtension do Symfony2.0 z mastera
 
 #### v1.0.7 (2013-10-07) ####
