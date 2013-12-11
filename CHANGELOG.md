@@ -1,5 +1,8 @@
 ## CHANGELOG ##
 
+#### v1.0.9 (2013-12-11) ####
+- Dodanie serwisu "clock".
+
 #### v1.0.8 (2013-11-29) ####
 - Sportowanie MoneyTypeExtension i PercentTypeExtension do Symfony2.0 z mastera
 
