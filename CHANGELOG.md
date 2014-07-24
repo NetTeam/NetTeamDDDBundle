@@ -1,5 +1,10 @@
 ## CHANGELOG ##
 
+#### v1.x.x (XXXX-XX-XX) ####
+
+#### Błędy
+* Poprawka w adresie composera na gitlabie.
+
 #### v1.0.9 (2013-12-11) ####
 - Dodanie serwisu "clock".
 
