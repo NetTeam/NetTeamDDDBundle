@@ -1,6 +1,6 @@
 ## CHANGELOG ##
 
-#### v1.x.x (XXXX-XX-XX) ####
+#### v1.0.10 (2014-07-25) ####
 
 #### Błędy
 * Poprawka w adresie composera na gitlabie.
