@@ -34,7 +34,7 @@ class MoneyToNumberTransformer implements DataTransformerInterface
      */
     public function transform($money)
     {
-        if (null === $money) {
+        if (null === $money || '' === $money) {
             return null;
         }
 

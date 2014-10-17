@@ -20,6 +20,7 @@ class DDDExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('service.xml');
         $loader->load('form.xml');
+        $loader->load('service.xml');
         $loader->load('twig.xml');
         $loader->load('validator.xml');
     }

@@ -17,12 +17,12 @@ abstract class TypeExtensionTestCase extends TypeTestCase
     {
         parent::setUp();
 
-        $factoryBuider = Forms::createFormFactoryBuilder();
+        $factoryBuilder = Forms::createFormFactoryBuilder();
         foreach ($this->getTypeExtensions() as $extension) {
-            $factoryBuider->addTypeExtension($extension);
+            $factoryBuilder->addTypeExtension($extension);
         }
 
-        $this->factory = $factoryBuider->getFormFactory();
+        $this->factory = $factoryBuilder->getFormFactory();
     }
 
     protected function tearDown()
