@@ -1,5 +1,8 @@
 ## CHANGELOG ##
 
+#### v1.1.6 (2014-XX-XX) ####
+- Add support for DateRange in forms.
+
 #### v1.1.5 (2014-07-03) ####
 - Merge z branchem 1.0
 
