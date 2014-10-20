@@ -19,7 +19,7 @@ abstract class EnumValueValidatorBase extends \PHPUnit_Framework_TestCase
      */
     public function testUnexpectedType()
     {
-        $this->validator->validate(new \stdClass, $this->getConstraint());
+        $this->validator->validate(new \stdClass(), $this->getConstraint());
     }
 
     public function testValidValue()
