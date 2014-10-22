@@ -2,6 +2,7 @@
 
 namespace NetTeam\Bundle\DDDBundle\Form\Type;
 
+use NetTeam\Bundle\DDDBundle\Form\DataTransformer\DateRangeToRangeTransformer;
 use NetTeam\Bundle\DDDBundle\Form\DataTransformer\MoneyRangeToRangeTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -46,6 +47,10 @@ class RangeType extends AbstractType
         if ('money' === $options['input']) {
             $fieldOptions['use_value_object'] = true;
             $builder->addModelTransformer(new MoneyRangeToRangeTransformer());
+        }
+
+        if ('date' === $options['type']) {
+            $builder->addModelTransformer(new DateRangeToRangeTransformer());
         }
 
         $builder->setAttribute('type', $options['type']);

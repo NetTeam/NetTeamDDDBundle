@@ -5,6 +5,7 @@ namespace NetTeam\Bundle\DDDBundle\Tests\Form\Type;
 use NetTeam\Bundle\DDDBundle\Tests\Form\Extension\TypeExtensionTestCase;
 use NetTeam\Bundle\DDDBundle\Form\Extension\MoneyTypeExtension;
 use NetTeam\Bundle\DDDBundle\Form\Type\RangeType;
+use NetTeam\DDD\ValueObject\DateRange;
 use NetTeam\DDD\ValueObject\Money;
 use NetTeam\DDD\ValueObject\MoneyRange;
 
@@ -35,6 +36,39 @@ class RangeTypeTest extends TypeExtensionTestCase
             'type' => 'money',
             'input' => 'money',
             'currency' => 'PLN',
+        ));
+
+        // submit the data to the form directly
+        $form->bind($formData);
+
+        $this->assertTrue($form->isSynchronized());
+        $this->assertEquals($object, $form->getData());
+
+        $view = $form->createView();
+        $children = $view->children;
+
+        foreach (array_keys($formData) as $key) {
+            $this->assertArrayHasKey($key, $children);
+        }
+    }
+
+    public function testSubmitDateRange()
+    {
+        $formData = array(
+            'min' => '2014-01-01',
+            'max' => '2014-12-31',
+        );
+
+        $object = new DateRange(new \DateTime('2014-01-01'), new \DateTime('2014-12-31'));
+
+        $form = $this->factory->create(new RangeType(), null, array(
+            'type' =>  'date',
+            'min_options' => array(
+                'widget' => 'single_text',
+            ),
+            'max_options' => array(
+                'widget' => 'single_text',
+            ),
         ));
 
         // submit the data to the form directly
