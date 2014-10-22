@@ -1,4 +1,4 @@
 NetTeamDDDBundle
 ================
 
-[![Build Status](https://travis-ci.org/NetTeam/DDDBundle.png?branch=master)](https://travis-ci.org/NetTeam/DDDBundle)
+[![Build Status](https://travis-ci.org/NetTeam/NetTeamDDDBundle.svg?branch=master)](https://travis-ci.org/NetTeam/NetTeamDDDBundle)
