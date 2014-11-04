@@ -33,9 +33,10 @@ class RangeTypeTest extends TypeExtensionTestCase
         $object = new MoneyRange(Money::PLN(100), Money::PLN(1000));
 
         $form = $this->factory->create(new RangeType(), null, array(
-            'type' => 'money',
-            'input' => 'money',
-            'currency' => 'PLN',
+            'range_class' => 'NetTeam\DDD\ValueObject\MoneyRange',
+            'type'       => 'money',
+            'input'      => 'money',
+            'currency'   => 'PLN',
         ));
 
         // submit the data to the form directly
@@ -62,6 +63,7 @@ class RangeTypeTest extends TypeExtensionTestCase
         $object = new DateRange(new \DateTime('2014-01-01'), new \DateTime('2014-12-31'));
 
         $form = $this->factory->create(new RangeType(), null, array(
+            'range_class' =>  'NetTeam\DDD\ValueObject\DateRange',
             'type' =>  'date',
             'min_options' => array(
                 'widget' => 'single_text',

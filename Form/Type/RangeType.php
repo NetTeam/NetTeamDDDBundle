@@ -2,8 +2,6 @@
 
 namespace NetTeam\Bundle\DDDBundle\Form\Type;
 
-use NetTeam\Bundle\DDDBundle\Form\DataTransformer\DateRangeToRangeTransformer;
-use NetTeam\Bundle\DDDBundle\Form\DataTransformer\MoneyRangeToRangeTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormView;
@@ -40,17 +38,9 @@ class RangeType extends AbstractType
         );
 
         if ('money' === $options['type']) {
+            $fieldOptions['use_value_object'] = true;
             $fieldOptions['currency'] = $options['currency'];
             $builder->setAttribute('currency', $options['currency']);
-        }
-
-        if ('money' === $options['input']) {
-            $fieldOptions['use_value_object'] = true;
-            $builder->addModelTransformer(new MoneyRangeToRangeTransformer());
-        }
-
-        if ('date' === $options['type']) {
-            $builder->addModelTransformer(new DateRangeToRangeTransformer());
         }
 
         $builder->setAttribute('type', $options['type']);
@@ -58,7 +48,7 @@ class RangeType extends AbstractType
         $builder->add('min', $options['type'], array_merge($fieldOptions, $options['min_options']));
         $builder->add('max', $options['type'], array_merge($fieldOptions, $options['max_options']));
 
-        $builder->addViewTransformer(new RangeToArrayTransformer());
+        $builder->addViewTransformer(new RangeToArrayTransformer($options['range_class']));
     }
 
     /**
@@ -91,6 +81,7 @@ class RangeType extends AbstractType
             'input' => null,
             'min_options' => array(),
             'max_options' => array(),
+            'range_class' => 'NetTeam\DDD\ValueObject\Range',
         ));
     }
 }
