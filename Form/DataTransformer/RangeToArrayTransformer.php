@@ -20,6 +20,7 @@ class RangeToArrayTransformer implements DataTransformerInterface
 
     /**
      * @param string $rangeClass
+     * @throws \InvalidArgumentException Throws when given class not a range implementation.
      */
     public function __construct($rangeClass = 'NetTeam\DDD\ValueObject\Range')
     {
